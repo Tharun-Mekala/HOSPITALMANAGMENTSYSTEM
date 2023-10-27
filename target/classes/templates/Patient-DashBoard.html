@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient DashBoard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" th:href="@{/css/Patient-DashBoard.css}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand">Patient DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logoutPatient">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+ <div class="doctor-container">
+    <h4 th:text="'Welocme '+${patient.name}"></h4>
+  <div class="box">
+    <input type="radio" class="tab-toggle" name="tab-toggle" id="tab1" checked>
+    <input type="radio" class="tab-toggle" name="tab-toggle" id="tab2">
+    <input type="radio" class="tab-toggle" name="tab-toggle" id="tab3">
+
+    <ul class="tab-list">
+      <li class="tab-item">
+        <label class="tab-trigger" for="tab1">Today's Appointments</label>
+      </li>
+      <li class="tab-item">
+        <label class="tab-trigger" for="tab2">Ongoing Appointments</label>
+      </li>
+      <li class="tab-item">
+        <label class="tab-trigger" for="tab3">Treated Appointment</label>
+      </li>
+    </ul>
+    
+    <div class="tab-container">
+      <div class="tab-content">
+         <div class="row mt-3">
+                <div class="col-md-4" th:each="appointment : ${todayAppointments}">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                             <p class="card-text">Doctor Name: <span th:text="${appointment.doctorName}"></span></p>
+                            <p class="card-text">Date: <span th:text="${appointment.date}"></span></p>
+                            <p class="card-text">Time: <span th:text="${appointment.time}"></span></p>
+                            <div class="button-container">
+                                 <button class="view-prescription-button">Prescription</button>
+    							 <div class="prescription-modal" >
+        							<div class="prescription-content">
+                    					<h1>Medical Sheet</h1>
+                    					<div class="info">
+                     					<p><span th:text="'Patient Name: ' + ${appointment.patientName}"></span></p>
+    			     					<p th:text="'Doctor Name: ' + ${appointment.doctorName}"></p>
+    			     					</div>
+    									<p th:text="'Disease: ' + ${appointment.disease}"></p>
+    									<h1>Prescription</h1>
+                    					<ul>
+                    						<li th:text="${appointment.prescription}"></li>
+                    					</ul>
+                    					  <button class="print-button close-button" onclick="printPrescription()">Print</button>
+                    					<button class="close-button">Close</button>
+        							</div>
+    							</div>
+                                <a th:href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete<i class="fa fa-trash-o"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="tab-content">
+            <div class="row mt-3">
+                <div class="col-md-4" th:each="appointment : ${ongoingAppointments}">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                             <p class="card-text">Doctor Name: <span th:text="${appointment.doctorName}"></span></p>
+                            <p class="card-text">Date: <span th:text="${appointment.date}"></span></p>
+                            <p class="card-text">Time: <span th:text="${appointment.time}"></span></p>
+                             <div class="button-container">
+                                 <button class="view-prescription-button">Prescription</button>
+    							 <div class="prescription-modal" >
+        							<div class="prescription-content">
+                    					<h1>Medical Sheet</h1>
+                     					<div class="info">
+                     					<p><span th:text="'Patient Name: ' + ${appointment.patientName}"></span></p>
+    			     					<p th:text="'Doctor Name: ' + ${appointment.doctorName}"></p>
+    			     					</div>
+    									<p th:text="'Disease: ' + ${appointment.disease}"></p>
+    									<h2>Prescription</h2>
+                    					<ul>
+                    						<li th:text="${appointment.prescription}"></li>
+                    					</ul>
+                    					<button class="print-button" onclick="printPrescription()">Print</button>
+                    					<button class="close-button">Close</button>
+        							</div>
+    							</div>
+                                <a th:href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete<i class="fa fa-trash-o"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+      <div class="tab-content">
+        <div class="row mt-3">
+                <div class="col-md-4" th:each="appointment : ${treatedAppointments}">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                             <p class="card-text">Doctor Name: <span th:text="${appointment.doctorName}"></span></p>
+                            <p class="card-text">Date: <span th:text="${appointment.date}"></span></p>
+                            <p class="card-text">Time: <span th:text="${appointment.time}"></span></p>
+                             <div class="button-container">
+                                 <button class="view-prescription-button">Prescription</button>
+    							 <div class="prescription-modal" >
+        							<div class="prescription-content">
+                    					<h1>Medical Sheet</h1>
+                     					<div class="info">
+                     					<p><span th:text="'Patient Name: ' + ${appointment.patientName}"></span></p>
+    			     					<p th:text="'Doctor Name: ' + ${appointment.doctorName}"></p>
+    			     					</div>
+    									<p th:text="'Disease: ' + ${appointment.disease}"></p>
+    									<h2>Prescription</h2>
+                    					<ul>
+                    						<li th:text="${appointment.prescription}"></li>
+                    					</ul>
+                    					<button class="print-button" onclick="printPrescription()">Print</button>
+                    					<button class="close-button">Close</button>
+        							</div>
+    							</div>
+                                <a th:href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete<i class="fa fa-trash-o"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="doctor-container2">
+	<h1>Reports</h1><hr>
+	<form  th:action="@{/addReports/{id}(id=${patient.id})}" enctype="multipart/form-data" method="post">
+		<input type="file" name="report" multiple accept="images/*" required>
+		<button>Add Reports</button>
+	</form>
+	<div  th:each="report : ${reports}">
+		 <div class="button-container">
+                                 <button class="view-prescription-button" th:text="${report}"></button>
+    							 <div class="prescription-modal" >
+        							<div class="prescription-content">
+                    					<img th:src="@{'Photos/'+${report}}"  alt="Doctor Image">
+                    					<form  th:action="@{/deleteReport/{id}/{report}(id=${patient.id},report=${report})}" method="post">
+                    						<button class="close-button">Delete</button>
+                    					</form>
+                    					<button class="close-button">Close</button>
+        							</div>
+    							</div>
+                              
+                            </div>
+	</div>
+.</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9547856321</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/loginPatient">Patient</a></li>
+                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><p>Gerenal</p></li>
+                    <li><p>ICU</p></li>
+                    <li><p>Emergency</p></li>
+                    <li><p>Cardiology</p></li>
+                    <li><p>Neurology</p></li>
+                    <li><p>Gynecology</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="Js/patientDashBoard.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.1/pdf-lib.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

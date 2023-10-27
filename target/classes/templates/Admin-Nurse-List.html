@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" th:href="@{/css/Admin-Nurse-List.css}">
+    <!-- Add your custom CSS here -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand" >Admin DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+             	<li class="nav-item">
+                    <a class="nav-link" th:href = "@{/AdminDashBoard}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/addNurse}">Add Nurse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/doctors}">Doctors</a>
+                </li>
+                   <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/viewAllLabTechnicians}">Lab Technician</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/loginAdmin">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="search-container">
+        <form th:action="@{/viewAllNursesBySearch}" method="post" >
+        <input class="search-input"  name="Key" type="text" placeholder="Search">
+        <button class="search-btn">&#128269;</button>
+        </form>
+</div>
+
+
+<div class="container" th:each="nurse : ${nurses}">
+        <div class="profile">
+            <img th:src="@{'Photos/'+${nurse.profile_photo}}" alt="Nurse">
+            <h3 th:text="${nurse.name}"></h3>
+            <div class="left">
+                <p>Shift:<span th:text="${nurse.shift}"></span></p>
+                <p>Gender:<span th:text="${nurse.gender}"></span> </p>
+                <p>DOJ:<span th:text="${nurse.date}"></span></p>
+            </div>
+            <div class="right">
+                <p>Email:<span th:text="${nurse.email}"></span></p>
+                <p>Password:<span th:text="${nurse.password}"></span></p>
+                <p>Phone:<span th:text="${nurse.phone}"></span></p>
+            </div>
+            <div class="actions">
+                <button class="edt-btn"><a th:href="@{/nurses/edit/{id}(id=${nurse.id})}">Edit</a></button>
+                <button class="del-btn"><a th:href="@{/nurses/{id}(id=${nurse.id})}">Delete</a></button>
+            </div>
+        </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9547856321</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/loginPatient">Patient</a></li>
+                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><p>Gerenal</p></li>
+                    <li><p>ICU</p></li>
+                    <li><p>Emergency</p></li>
+                    <li><p>Cardiology</p></li>
+                    <li><p>Neurology</p></li>
+                    <li><p>Gynecology</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Rest of your HTML content goes here -->
+
+<!-- Bootstrap and jQuery scripts (make sure to include jQuery first) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

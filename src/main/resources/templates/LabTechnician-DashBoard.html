@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabTechnician DashBoard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" th:href="@{/css/LabTechnician-DashBoard.css}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
+    <style>
+    /* CSS for the table width */
+   
+    /* CSS for the button */
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>  
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand" >LabTechnician DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            	 <li class="nav-item">
+                    <a class="nav-link" href="/labTechnicianDashBoard">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/LoginLabTechnician">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container mt-4">
+	<form action="/filterListofTests" method="post">
+    <div class="row mb-3">
+        <div class="col-md-3">
+                 <input type="date" name="date" th:max="${maxDate}" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" name="doctor">
+                <option>Select Doctor</option>
+                <option th:each="doctor : ${doctors}" th:value="${doctor.name}" th:text="${doctor.name}+'-'+${doctor.department}">Doctor Name</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" name="status">
+                <option>Select Status</option>
+                <option>Completed</option>
+                <option>InCompleted</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary">Apply Filter</button>
+        </div>
+    </div>
+       </form>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Test ID</th>
+                <th>Appointment ID</th>
+                <th>Test Name</th>
+                <th>Patient Name</th>
+                <th>Doctor Name</th>
+                <th>Status</th>
+                <th>Add Reports</th>
+            </tr>
+        </thead>
+        <tbody th:each="test : ${tests}">
+        	<td th:text="${test.id}"></td>
+        	<td th:text="${test.appId}"></td>
+        	<td th:text="${test.name}"></td>
+        	<td th:text="${test.patientName}"></td>
+        	<td th:text="${test.doctorName}"></td>
+        	<td th:text="${test.status}"></td>
+        	<td> 
+        		<form th:action="@{/uploadReportbyLabTechnician/{testId}/{patId}(testId=${test.id},patId=${test.patId})}" method="post" enctype="multipart/form-data">
+        		<input type="file" name="report" accept=".jpg, .jpeg, .pdf" multiple>
+        		<button>Upload</button>
+        		</form>
+        	</td>
+        </tbody>
+    </table>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9547856321</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/loginPatient">Patient</a></li>
+                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><p>Gerenal</p></li>
+                    <li><p>ICU</p></li>
+                    <li><p>Emergency</p></li>
+                    <li><p>Cardiology</p></li>
+                    <li><p>Neurology</p></li>
+                    <li><p>Gynecology</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="Js/nurseDashBoard.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

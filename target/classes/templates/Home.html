@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" th:href="@{/css/Home.css}">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand" href="/">Healing Heven Hospital</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href = "@{/contact}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginAdmin}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginDoctor}">Doctor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginNurse}">Nurse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/LoginLabTechnician}">Lab Technician</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginPatient}">Patient</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/bookAppointment}">Book Appointment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="slider_container">
+        <section class="slider">
+            <div class="slide one">
+                 <img src="https://thumbs.dreamstime.com/z/team-group-doctors-nurses-medicine-healthcare-concept-46694504.jpg?w=2048" alt="">
+            </div>
+             <div class="slide two">
+                 <img src="https://s7d6.scene7.com/is/image/questdiagnostics/7_post_pandemic_cost_mandates?$corp-interior-hero$" alt="">
+            </div>
+            <div class="slide three">
+                <img src="https://hospitalcmq.com/wp-content/uploads/2019/02/seguros-medicos.jpg" alt="">
+            </div>
+            <div class="slide four">
+                 <img src="https://thumbs.dreamstime.com/z/team-group-doctors-nurses-medicine-healthcare-concept-46694504.jpg?w=2048" alt="">
+            </div>
+             <div class="slide four">
+                 <img src="https://s7d6.scene7.com/is/image/questdiagnostics/7_post_pandemic_cost_mandates?$corp-interior-hero$" alt="">
+            </div>
+        </section>
+    </section>
+
+<div class="hosp-container">
+    <div class="Image">
+        <img src="https://image.lexica.art/full_jpg/2e8637c0-d256-4422-96e7-c43d53b1d8a8">
+    </div>
+    <div class="content">
+        <h2>Healing Heven Hospital</h2>
+        <div class="underline"></div>
+        <h6>Welcome,</h6>
+        <p>At Healing Heaven Hospital, we are committed to providing world-class healthcare services with compassion and excellence. Our state-of-the-art facility is equipped with the latest medical technology and staffed by a team of highly skilled healthcare professionals. We believe in the healing power of both modern medicine and a warm, caring touch.. Our unwavering commitment is to provide world-class healthcare services with compassion and excellence at the core. We understand that health is one of life's most precious gifts, and we strive to safeguard it with utmost dedication.</p>
+    </div>
+    
+</div>
+
+
+<div class="why-container">
+    <h2>Why Healing Heaven Hospital?</h2>
+    <div class="columns">
+        <div class="column">
+            <div class="circle-image">
+                <img src="https://www.amerikanhastanesi.org/getmedia/a2e4c022-67cc-4425-a9b6-61625bd5cc75/patient-care.svg.aspx?ext=.svg" alt="Image 1">
+            </div>
+            <h3>Future Vision</h3>
+            <p>The integrative approach we initiated with Code Lotus and the digital transformations we implemented throughout the hospital are two key advancement actions that perfectly reflect our ambitious future vision, as we leave our 100th anniversary behind.</p>
+        </div>
+        <div class="column">
+            <div class="circle-image">
+                <img src="https://www.amerikanhastanesi.org/getmedia/bd8b4ea3-3b8c-4de9-9768-1a27defeb7ab/performance-indicators.svg.aspx?ext=.svg" alt="Image 2">
+            </div>
+            <h3>Performance Results</h3>
+            <p>We continuously improve our medial and administrative processes with a measurable system for quality and safe service that successfully meets the very highest standards.</p>
+        </div>
+        <div class="column">
+            <div class="circle-image">
+                <img src="https://www.amerikanhastanesi.org/getmedia/cd14f23d-a6ef-4889-9af4-c518d2b3df37/patient-experience-office.svg.aspx?ext=.svg" alt="Image 3">
+            </div>
+            <h3>Patient Experience</h3>
+            <p>Patient Experience refers to the views of patients concerning the organization culture of the healthcare facility and also the experiences of patients who have been treated within the American Hospital’s healthcare set up.</p>
+        </div>
+        <div class="column">
+            <div class="circle-image">
+                <img src="https://www.amerikanhastanesi.org/getmedia/b4d23a34-b014-4ebf-b65c-5300d866617a/md-anderson.svg.aspx?ext=.svg" alt="Image 4">
+            </div>
+            <h3>State-of-the-Art Technology</h3>
+            <p>We utilize the latest medical technology to ensure the best possible outcomes for our patients.</p>
+        </div>
+    </div>
+</div>
+
+            
+<div class="wrapper" >
+    <h2><center>Our Specialists</center></h2>
+      <ul class="carousel" >
+        <li class="card" th:each="doctor : ${doctors}">
+            <div class="img"><img th:src="@{'Photos/'+${doctor.profile_photo}}" alt="img" draggable="false"></div>
+            <h2 th:text="${doctor.name}"></h2>
+            <span th:text="${doctor.department}"></span>
+        </li>
+      </ul>
+    </div>
+</div>
+              
+ <div class="services-container" id="services">
+    <div class="services-heading">
+            <h1>Our Services</h1>
+        </div>
+        <div class="services-images">
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/2011/2011994.png" alt="24*7 Ambulances">
+                <h3>Ambulances</h3>
+            </div>
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/9493/9493659.png" alt="ICU">
+                <h3>ICU</h3>
+            </div>
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/10551/10551831.png" alt="Incubation">
+                <h3>Incubation</h3>
+            </div>
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/12248/12248790.png" alt="Emergency">
+                <h3>Emergency</h3>
+            </div>
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/2753/2753543.png" alt="Emergency">
+                <h3>Online Appointment Booking</h3>
+            </div>
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/2221/2221104.png" alt="Emergency">
+                <h3>Managing Health Records</h3>
+            </div>
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/3891/3891548.png" alt="Emergency">
+                <h3>Health Card Schema</h3>
+            </div>
+            <div class="services-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/2767/2767704.png" alt="Emergency">
+                <h3>Accident Care</h3>
+            </div>
+        </div>
+    </div>
+
+<div class="about-container" id="about-us">
+    <div class="about-heading">
+        <h1>About Us</h1>
+    </div>
+    <div class="about-content">
+        <div class="about-image">
+            <img src="https://www.worldhistory.org/img/r/p/500x600/7873.jpg?v=1639408503" alt="About Us Image">
+        </div>
+        <div class="about-description">
+            <p>Welcome to Healing Heaven Hospital, where we are dedicated to providing exceptional healthcare services with compassion and expertise. Our team of highly skilled professionals is committed to ensuring your well-being and providing personalized care to meet your unique needs.</p>
+            <p>At Healing Heaven Hospital, we believe in the power of healing through innovative treatments and compassionate care. With state-of-the-art facilities and a patient-centered approach, we strive to make a difference in the lives of our patients.</p>
+        </div>
+    </div>
+    <div class="vision-mission">
+		<h2>Vision & Mission</h2>
+		<hr>
+		<p><img src="https://i.pinimg.com/736x/cb/6b/81/cb6b81f90e1d762d107a92e6af69115f.jpg" alt="Vision Image">
+            To integrate all the deciplines in creating excellent clinical experience and patient care. 
+            Advanced scientific innovative research in all specialities of dentistry.
+			Globalised teachng methodology incorporation to attain updated teaching facilities.
+			Creating awareness of oral health care among backward community population by conducting dental camps and dental education programmes by audio visual aids.
+		</p>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9547856321</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/loginPatient">Patient</a></li>
+                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><p>Gerenal</p></li>
+                    <li><p>ICU</p></li>
+                    <li><p>Emergency</p></li>
+                    <li><p>Cardiology</p></li>
+                    <li><p>Neurology</p></li>
+                    <li><p>Gynecology</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="Home.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

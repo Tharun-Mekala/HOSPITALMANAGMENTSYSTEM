@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <!-- Add your custom CSS here -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand" href="/">Healing Heaven Hospital</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginAdmin}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginDoctor}">Doctor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginNurse}">Nurse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/LoginLabTechnician}">Lab Technician</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/loginPatient}">Patient</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/bookAppointment}">Book Appointment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class='login' id='login'>
+  <div class='head'>
+    <h1 class='company'>Hello Lab Technician</h1>
+  </div>
+  <div th:if="${error}" th:text="${error}" style="color: red; text-align: center;"></div>
+  <div class='form'>
+    <form action="/LoginLabTechnician" method="post" id="loginForm">
+    <p class='msg'>Welcome back</p>
+      <input type="text" placeholder='Email' class='text' id="email" name="email" required><br><br>
+      <input type="password" placeholder='Password' id="password" name="password" class='password' required><br><br><br>
+      <button class="btn-login">Login</button>
+      <a href="#" class='forgot' onclick="flipCard()">Forgot?</a>
+    </form>
+    <form action="/labTechnicianSendNewPassword" method="post" id="forgotForm" style="display: none;">
+    <p class='msg'>Please Enter your email to reset our password</p>
+      <input type="text" placeholder='Email' class='text' id="email" name="email" required><br><br>
+      <button class="btn-login">Send Password</button>
+      <a href="#" class='forgot' onclick="flipCard()">Back to Login</a>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9547856321</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/loginPatient">Patient</a></li>
+                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><p>Gerenal</p></li>
+                    <li><p>ICU</p></li>
+                    <li><p>Emergency</p></li>
+                    <li><p>Cardiology</p></li>
+                    <li><p>Neurology</p></li>
+                    <li><p>Gynecology</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Rest of your HTML content goes here -->
+
+<!-- Bootstrap and jQuery scripts (make sure to include jQuery first) -->
+
+<script>
+  function flipCard() {
+    var loginForm = document.getElementById('loginForm');
+    var forgotForm = document.getElementById('forgotForm');
+    if (loginForm.style.display !== 'none') {
+      loginForm.style.display = 'none';
+      forgotForm.style.display = 'block';
+    } else {
+      loginForm.style.display = 'block';
+      forgotForm.style.display = 'none';
+    }
+  }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Session Expired Error</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .error-container {
+            text-align: center;
+        }
+        .error-code {
+            font-size: 72px;
+            color: #e74c3c;
+        }
+        .error-message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .home-link {
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            border: 1px solid #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .home-link:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // Check if the user is logged in
+            var isLoggedIn = true; // You should replace this with your own logic to check if the user is logged in
+
+            if (!isLoggedIn) {
+                preventBack();
+            }
+
+            function preventBack() {
+                window.history.forward();
+                setTimeout("preventBack()", 0);
+                window.onunload = function () {
+                    null;
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-message">Session Expired</div>
+        <a href="/" class="home-link">Go to Home</a>
+    </div>
+</body>
+</html>

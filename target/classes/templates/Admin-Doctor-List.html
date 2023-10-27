@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" th:href="@{/css/Admin-Doctor-List.css}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">  
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.5.0/css/bootstrap.min.css}"> 
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand" >Admin DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/AdminDashBoard}">Home</a>
+                </li>
+                   <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/addDoctor}">Add Doctor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/nurses}">Nurses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/viewAllLabTechnicians}">Lab Technician</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/loginAdmin">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="">
+<div class="search-container">
+        <form th:action="@{/doctors}" method="post" >
+        <input class="search-input"  name="key" type="text" placeholder="Search">
+        <button class="search-btn">&#128269;</button>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" >
+        <div class="col-md-6 mb-4" th:each="doctor : ${doctors}">
+            <div class="profile-card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img th:src="@{'Photos/'+${doctor.profile_photo}}" class="profile-image" alt="Doctor Image">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="profile-details">
+                           <h5 class="card-title profile-name" th:text="${doctor.name}"></h5>
+                                <p class="profile-field"><span th:text="'Department: '+${doctor.department}"></span></p>
+                                <p class="profile-field"><span th:text="'Gender: '+${doctor.gender}"></span></p>
+                                <p class="profile-field"><span th:text="'Date of Joining: '+${doctor.date}"></span></p>
+                                <p class="profile-field"><span th:text="'Phone Number: '+${doctor.phone}"></span></p>
+                                <p class="profile-field"><span th:text="'Email: '+${doctor.email}"></span></p>
+                                <p class="profile-field"><span th:text="'Password: '+${doctor.password}"></span></p>
+                            <a class="edit-btn" th:href="@{/doctors/edit/{id}(id=${doctor.id})}">Edit</a>
+                            <a class="delete-btn" th:href="@{/doctors/{id}(id=${doctor.id})}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9547856321</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/loginPatient">Patient</a></li>
+                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><p>Gerenal</p></li>
+                    <li><p>ICU</p></li>
+                    <li><p>Emergency</p></li>
+                    <li><p>Cardiology</p></li>
+                    <li><p>Neurology</p></li>
+                    <li><p>Gynecology</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script th:src="@{/webjars/bootstrap/5.5.0/js/bootstrap.min.js}"></script>
+</body>
+</html>  

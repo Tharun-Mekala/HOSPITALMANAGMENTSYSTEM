@@ -1,0 +1,98 @@
+@charset "ISO-8859-1";
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: lightsteelblue; /* Background color for the dashboard */
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+}
+p
+{
+    text-align: left;
+}
+.view-prescription-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-prescription-button:hover {
+    background-color: #45a049;
+}
+
+/* Add your existing CSS styles here */
+
+/* Prescription Modal Styles */
+.prescription-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    justify-content: left;
+    align-items: center;
+    z-index: 1;
+}
+
+.prescription-content {
+    background-color:lightslategrey;
+    font-family: "Playfair Display", serif;
+    color: black;
+    margin: 150px 400px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.prescription-content .info {
+    display: flex; /* Use Flexbox to create a horizontal layout */
+    justify-content: space-between; /* Space evenly between elements */
+    align-items: center; /* Vertically center elements */
+    font-size: 20px;
+}
+
+.prescription-content p {
+    font-size: 20px;
+}
+
+.prescription-content ul li{
+	text-transform: capitalize;
+    white-space: pre-line;
+}
+
+.close-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-button:hover {
+    background-color: #cc0000;
+}

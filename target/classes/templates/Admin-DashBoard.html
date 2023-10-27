@@ -1,0 +1,200 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" th:href="@{/css/Admin-DashBoard.css}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand" >Admin DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+               <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/loginAdmin">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="three">
+  <h1>Departments</h1>
+</div>
+<div class="department-card">
+<div class="content">
+    <div class="front">
+      <img src="https://img.freepik.com/premium-photo/pretty-realistic-heart-illustration-with-isolated-background_742252-4113.jpg?w=740" />
+    </div>
+    <div class="back" >
+     	<h3 th:text="${cardiology.name}"></h3>
+     	<hr>
+     	<h5 th:text="'Total Doctors: '+${cardiology.doctors}"></h5>
+     	<h5 th:text="${'Total Patients:'+cardiology.occpuiedBeds}"></h5>
+    </div>
+  </div>
+</div>
+<div class="department-card">
+<div class="content">
+    <div class="front">
+      <img src="https://previews.123rf.com/images/luaeva/luaeva1602/luaeva160200005/52561334-neurology-concept-two-linked-parts-of-the-brain.jpg" />
+    </div>
+    <div class="back" >
+    	<h3 th:text="${neurology.name}"></h3>
+     	<hr>
+     	<h5 th:text="'Total Doctors: '+${neurology.doctors}"></h5>
+     	<h5 th:text="${'Total Patients:'+neurology.occpuiedBeds}"></h5>
+    </div>
+  </div>
+</div>
+<div class="department-card">
+<div class="content">
+    <div class="front">
+      <img src="https://previews.123rf.com/images/microone/microone1711/microone171100174/89323557-motherhood-silhouette-emblem-isolated-on-pink-background-flat-vector-illustration.jpg" />
+    </div>
+    <div class="back" >
+     	<h3 th:text="${gyenocology.name}"></h3>
+     	<hr>
+     	<h5 th:text="'Total Doctors: '+${gyenocology.doctors}"></h5>
+     	<h5 th:text="${'Total Patients:'+gyenocology.occpuiedBeds}"></h5>
+    </div>
+  </div>
+</div>
+<div class="department-card">
+<div class="content">
+    <div class="front">
+      <img src="https://img.freepik.com/free-photo/interior-view-operating-room_1170-2254.jpg?w=996&t=st=1697128139~exp=1697128739~hmac=e64ad11c05cd99637b9ca35f086e9d2da0d605341441e91005425aa78f13fb59" />
+    </div>
+    <div class="back" >
+     	<h3 th:text="${icu.name}"></h3>
+     	<hr>
+     	<h5 th:text="'Total Doctors: '+${icu.doctors}"></h5>
+     	<h5 th:text="${'Total Patients:'+icu.occpuiedBeds}"></h5>
+    </div>
+  </div>
+</div>
+<div class="department-card">
+<div class="content">
+    <div class="front">
+    <img src="https://as1.ftcdn.net/v2/jpg/05/83/00/06/1000_F_583000609_dMGUDBR13gPLndOYTXLKAa38HGktYo2y.jpg" />
+    </div>
+    <div class="back" >
+     	<h3 th:text="${general.name}"></h3>
+     	<hr>
+     	<h5 th:text="'Total Doctors: '+${general.doctors}"></h5>
+     	<h5 th:text="${'Total Patients:'+general.occpuiedBeds}"></h5>
+    </div>
+  </div>
+</div>
+<div class="department-card">
+<div class="content">
+    <div class="front">
+      <img src="https://img.freepik.com/premium-photo/first-aid-kit-icon-white-background_473931-9.jpg?w=740" />
+    </div>
+    <div class="back" >
+     	<h3 th:text="${emergency.name}"></h3>
+     	<hr>
+     	<h5 th:text="'Total Doctors: '+${emergency.doctors}"></h5>
+     	<h5 th:text="${'Total Patients:'+emergency.occpuiedBeds}"></h5>
+    </div>
+  </div>
+</div>
+<br><br><br><br>
+
+<div class="three">
+  <h1>Doctor's List</h1>
+   <div class="view-all"><a th:href = "@{/doctors}">View Doctors</a></div>
+</div>
+<div class="card card-1" th:each="doctor : ${doctors}">
+      <img th:src="@{'Photos/'+${doctor.profile_photo}}" class="profile">
+      <h1 class="title-2" th:text="${doctor.name}"></h1>
+      <p class="job-title" th:text="${doctor.department}"> </p>
+      <a class="btn color-c top" th:href="@{/doctors/edit/{id}(id=${doctor.id})}">view/Edit</a>
+    </div>
+ <br><br><br><br>
+
+
+<div class="three">
+  <h1>Nurse's List</h1>
+   <div class="view-all"><a th:href = "@{/nurses}">View Nurse</a></div>
+</div>
+<div class="card card-1" th:each="nurse : ${nurses}">
+      <img th:src="@{'Photos/'+${nurse.profile_photo}}"  class="profile">
+      <h1 class="title-2" th:text="${nurse.name}"></h1>
+      <p class="job-title" th:text="${nurse.shift}"> </p>
+      <a class="btn color-c top" th:href="@{/nurses/edit/{id}(id=${nurse.id})}">view/Edit</a>
+    </div>
+ <br><br><br><br>
+
+<div class="three">
+  <h1>Lab Technician's List</h1>
+   <div class="view-all"><a th:href = "@{/viewAllLabTechnicians}">View All</a></div>
+</div>
+<div class="card card-1" th:each="labTechnician : ${labTechnicians}">
+      <img th:src="@{'Photos/'+${labTechnician.profile_photo}}"  class="profile">
+      <h1 class="title-2" th:text="${labTechnician.name}"></h1>
+      <p class="job-title" th:text="${labTechnician.testingDepartment}"> </p>
+      <a class="btn color-c top" th:href="@{/editLabTechnician/{id}(id=${labTechnician.id})}">view/Edit</a>
+    </div>
+<br><br><br><br>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9999999999</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><a href="#">Neurology</a></li>
+                    <li><a href="#">Dermotology</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> 
+

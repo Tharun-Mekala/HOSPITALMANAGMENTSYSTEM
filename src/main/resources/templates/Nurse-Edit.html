@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Nurse</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/HF.css}">
+    <link rel="stylesheet" th:href="@{/css/Nurse-Edit.css}">
+    <!-- Add your custom CSS here -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    <div class="container">
+        <a class="navbar-brand" href="/">Healing Heaven Hospital</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+ 				<li class="nav-item">
+                    <a class="nav-link" th:href = "@{/AdminDashBoard}">Home</a>
+                </li>
+               <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/doctors}">Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href = "@{/nurses}">Nurses</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/logoutAdmin">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+ <div class="register-box">
+        <div class="title">Edit Nurse Profile</div>
+         <form action="#" th:action="@{/nurses/{id}(id=${nurse.id})}" enctype="multipart/form-data"  th:object="${nurse}" method="post">
+            <div class="user_details">
+                <div class="input_pox">
+                    <span class="datails">Full Name</span>
+                    <input type="text" id="name" name="name" th:field="*{name}" placeholder="enter your Name" required>
+                </div>
+                
+                <div class="input_pox">
+                    <span class="datails">Email</span>
+                    <input type="email" id="email" name="email" th:field="*{email}" placeholder="enter your email" required>
+                </div>
+                
+                <div class="input_pox">
+                    <span class="datails">Password</span>
+                     <input type="text" id="password" name="password" th:field="*{password}" required placeholder="Password">
+                </div>
+
+                <div class="input_pox">
+                    <span class="datails">Phone Number</span>
+                   <input type="text" id="phone" name="phone" th:field="*{phone}" placeholder="enter your phone number" required>
+                </div>
+                <div class="input_pox">
+                    <span class="datails">Shift</span>
+                    <select name="shift" id="shift" th:field="*{shift}">
+                <option value="shift-1">shift-1</option>
+                <option value="shift-2">shift-2</option>
+                <option value="shift-3">shift-3.</option>
+                </select>
+                </div>
+                 <div class="input_pox">
+                    <span class="datails">Date of join</span>
+                    <input type="date" id="date" name="date" th:field="*{date}">
+                </div>
+                <div class="input_pox">
+                    <span class="datails">Experience</span>
+                    <input type="number" id="experience" name="experience" th:field="*{experience}" min="0">
+                </div>
+            </div>
+            <div class="gender_details">
+                <input type="radio" name="gender" id="dot-1" th:field="*{gender}" value="MALE">
+    <input type="radio" name="gender" id="dot-2" th:field="*{gender}" value="FEMALE">
+    <input type="radio" name="gender" id="dot-3" th:field="*{gender}" value="Prefer not to say">
+                <span class="gender_title"> Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">MALE</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">FEMALE</span>
+                    </label>
+                    <label for="dot-3">
+                        <span class="dot three"></span>
+                        <span class="gender">Prefer not to say</span>
+                    </label>
+                </div>
+                 <div class="input_pox">
+                    <span class="datails">Profile Photo</span>
+                   <input type="file" name="profilePhoto">
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Edit">
+            </div>
+        </form>
+    </div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><p>Email:hhh@gmail.com</p></li>
+                    <li><p>+91-9547856321</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/loginPatient">Patient</a></li>
+                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><p>Gerenal</p></li>
+                    <li><p>ICU</p></li>
+                    <li><p>Emergency</p></li>
+                    <li><p>Cardiology</p></li>
+                    <li><p>Neurology</p></li>
+                    <li><p>Gynecology</p></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Rest of your HTML content goes here -->
+
+<!-- Bootstrap and jQuery scripts (make sure to include jQuery first) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
