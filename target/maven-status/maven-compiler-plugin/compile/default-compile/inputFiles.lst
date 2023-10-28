@@ -1,37 +1,40 @@
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Appointment.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\LabTechnicianRepository.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\PatientServiceImpl.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\EmailServiceImpl.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\HospitalSystemManagmentApplication.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\PatientController.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\NurseServiceImpl.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\AppointmentServiceImpl.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\DoctorServiceImpl.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\LabTechnicianController.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\EmailService.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\LabTechnician.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\DepartmentService.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\DepartmentServiceImpl.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\AppointmentService.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\PatientService.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Doctor.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\HomeController.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\AppointmentController.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Tests.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\LabTechnicianService.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\DoctorService.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\AdminController.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Department.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\AppointmentRepository.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\NurseRepository.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\resources\TokenTime.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Patient.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\DoctorRepository.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\PatientRepository.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\DepartmentRepository.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\NurseController.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\resources\Password.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Nurse.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\DoctorController.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\LabTechnicianServiceImpl.java
-C:\Users\THARUN\Demo\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\NurseService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\AppointmentService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\HospitalSystemManagmentApplication.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\NurseController.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\TestRepository.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\AppointmentRepository.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\PatientService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\TestService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\LabTechnicianService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Department.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\NurseRepository.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Doctor.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\LabTechnicianRepository.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\EmailService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\AppointmentController.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\resources\TokenTime.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Appointment.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\DoctorServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\PatientController.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\HomeController.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\TestServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\NurseService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\DoctorService.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\NurseServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\AdminController.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\AppointmentServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\DoctorController.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Patient.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\DepartmentRepository.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\DoctorRepository.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\PatientServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\resources\Password.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Test.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\LabTechnicianServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\controller\LabTechnicianController.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\LabTechnician.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\entity\Nurse.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\repository\PatientRepository.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\DepartmentServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\impl\EmailServiceImpl.java
+C:\Users\H P\MAJOR_PROJECT\HOSPITALMANAGMENTSYSTEM\src\main\java\com\pro\hms\service\DepartmentService.java

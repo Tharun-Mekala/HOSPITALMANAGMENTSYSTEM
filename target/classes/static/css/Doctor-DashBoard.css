@@ -75,8 +75,7 @@
   padding: 15px 30px;
 }
 .doctor-container h4 {
-  text-align:center;
- 
+  text-align:center; 
   text-transform:capitalize;
   font-size:26px; letter-spacing:1px;
   font-family:"Playfair Display", serif; font-weight:bold;
@@ -109,6 +108,7 @@
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-right: 10px;
     transition: background-color 0.3s;
 }
 
@@ -173,7 +173,7 @@
 }
 
 .prescription-content {
-  background-color: #fff;
+  background-color:lightsteelblue;
   font-family: "Playfair Display", serif;
   color: black;
   margin: 100px 100px; /* Adjust the margin as needed */  
@@ -261,7 +261,7 @@ textarea, select {
 .btn-primary {
     display: block;
     margin: 0 auto;
-    width: 30%;
+    width: 20%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -273,4 +273,305 @@ textarea, select {
 
 .btn-primary:hover {
     background-color: #45a049;
+}
+
+.textarea-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-textarea,
+.right-textarea {
+    width: 48%; /* Adjust the width as per your preference */
+}
+
+.left-textarea textarea,
+.right-textarea textarea {
+    width: 100%;
+    background-color:honeydew
+}
+.buttons
+{
+	display: flex;
+	margin-bottom: 10px;
+	
+	justify-content: center;
+	align-items: center;
+}
+.report-content
+{
+  background-color:lightsteelblue;
+  font-family: "Playfair Display", serif;
+  color: black;
+  margin: 100px 100px;  
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 5%;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-height: 90vh; /* Set the maximum height relative to the viewport height */
+  overflow: auto;
+}
+.buttons
+{
+	display: flex;
+}
+.treated
+{
+	background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+.test-content {
+  background-color: black;
+  font-family: "Playfair Display", serif;
+  color: black;
+  margin: auto; 
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 60%; 
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+
+.report-modal,
+.test-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    z-index: 2;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.report-modal.show-modal,
+.test-modal.show-modal {
+    display: block;
+}
+
+.report-modal .prescription-content,
+.test-modal .prescription-content {
+    text-align: left;
+}
+
+.report-modal .close-modal,
+.test-modal .close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.report-modal .close-modal:hover,
+.test-modal .close-modal:hover,
+.report-modal .close-modal:focus,
+.test-modal .close-modal:focus {
+    color: red;
+    text-decoration: none;
+}
+.test-list
+{
+	list-style-type: none;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.report-content ul,
+.test-content ul {
+    list-style-type: none;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.report-content ul li,
+.test-content ul li {
+    white-space: pre-line;
+    text-transform: capitalize;
+    padding: 10px;
+    color:#fff;
+}
+
+.test-content .close {
+  background-color: light-red;
+  font-family: "Playfair Display", serif;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.test-content .close:hover {
+  background-color:red;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Default styles for larger screens */
+
+/* Add your existing CSS here */
+
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .doctor-container h4 {
+        font-size: 18px;
+    }
+
+    .tab-list {
+        font-size: 14px;
+    }
+
+    .tab-item {
+        padding: 10px;
+    }
+
+    .tab-trigger {
+        padding: 5px 10px;
+    }
+
+    .doctor-container {
+        margin: 15px;
+    }
+
+    .textarea-container {
+        flex-direction: column;
+    }
+
+    .left-textarea,
+    .right-textarea {
+        width: 100%;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .view-prescription-button {
+        width: 100%;
+    }
+
+    .footer-col {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Media query for phones and smaller screens */
+@media (max-width: 480px) {
+    .doctor-container h4 {
+        font-size: 16px;
+    }
+
+    .tab-list {
+        font-size: 12px;
+    }
+
+    .tab-item {
+        padding: 8px;
+    }
+
+    .tab-trigger {
+        padding: 5px;
+    }
+
+    .doctor-container {
+        margin: 10px;
+    }
+
+    .textarea-container {
+        flex-direction: column;
+    }
+
+    .left-textarea,
+    .right-textarea {
+        width: 100%;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .view-prescription-button {
+        width: 100%;
+    }
+
+    .footer-col {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    /* ... (existing CSS) ... */
+
+    .report-content,
+    .test-content {
+        margin: 50px auto; /* Adjust margin as needed for smaller screens */
+        width: 90%; /* Adjust width as needed for smaller screens */
+        max-width: 400px; /* Set maximum width for smaller screens */
+        padding: 15px;
+    }
+
+    .report-content .close,
+    .test-content .close {
+        margin-top: 20px;
+    }
+}
+
+/* Media query for phones and smaller screens */
+@media (max-width: 480px) {
+    /* ... (existing CSS) ... */
+
+    .report-content,
+    .test-content {
+        margin: 30px auto; /* Adjust margin as needed for smaller screens */
+        width: 90%; /* Adjust width as needed for smaller screens */
+        max-width: 300px; /* Set maximum width for smaller screens */
+        padding: 10px;
+    }
+
+    .report-content .close,
+    .test-content .close {
+        margin-top: 15px;
+    }
 }
