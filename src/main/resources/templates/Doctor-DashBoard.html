@@ -1,39 +1,50 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Doctor</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <link rel="stylesheet" th:href="@{/css/HF.css}">
+
     <link rel="stylesheet" th:href="@{/css/Doctor-DashBoard.css}">
+
     <!-- Add your custom CSS here -->
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">   
-
-
 </head>
+
 <body>
- <div th:if="${param.error}">
+	<div th:if="${param.error}">
         <p class="alert alert-danger">Incorrect username or password.</p>
-    </div>
-<nav class="navbar navbar-expand-lg navbar-dark custom-header">
-    <div class="container">
-        <a class="navbar-brand" >Doctor DashBoard</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/doctorChangePassword">Change Password</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logoutDoctor">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+ 	</div>
+	<nav class="navbar navbar-expand-lg navbar-dark custom-header">
+    	<div class="container">
+        	<a class="navbar-brand" >Doctor DashBoard</a>
+        	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            	<span class="navbar-toggler-icon"></span>
+        	</button>
+        	<div class="collapse navbar-collapse" id="navbarNav">
+            	<ul class="navbar-nav ml-auto">
+                	<li class="nav-item">
+                    	<a class="nav-link" href="/doctorChangePassword">Change Password</a>
+                	</li>
+                	<li class="nav-item">
+                    	<a class="nav-link" href="/logoutDoctor">Logout</a>
+                	</li>
+            	</ul>
+        	</div>
+    	</div>
+	</nav>
+
+
 
  <div class="doctor-container">
    <h4 th:text="'Welcome ' + ${doctor.name}"></h4>
@@ -41,7 +52,6 @@
     <input type="radio" class="tab-toggle" name="tab-toggle" id="tab1" checked>
     <input type="radio" class="tab-toggle" name="tab-toggle" id="tab2">
     <input type="radio" class="tab-toggle" name="tab-toggle" id="tab3">
-
     <ul class="tab-list">
       <li class="tab-item">
         <label class="tab-trigger" for="tab1">Today's Appointments</label>
@@ -53,9 +63,9 @@
         <label class="tab-trigger" for="tab3">Treated Appointment</label>
       </li>
     </ul>
-    
     <div class="tab-container">
       <div class="tab-content">
+      <div class="table-responsive">
            <table class="table">
                     <thead>
                         <tr>
@@ -92,21 +102,63 @@
     							 	<div class="prescription-modal" >
         								<div class="prescription-content">
 				                            <form th:action="@{/treatPatient/{appointmentId}(appointmentId=${appointment.id})}" method="post">
-                            				<p th:text="'Patient Name: '+${appointment.patientName}"></p>
-                            				<p th:text="'Doctor: '+${doctor.Name}"></p>
-                            				<h6>Diseases: </h6>
-                            				<textarea name="disease" th:text="${appointment.disease}" rows="2" cols="20"></textarea>
-                            				<h6>Prescription : </h6>
-                            				<textarea name="prescription" th:text="${appointment.prescription}" rows="4" cols="20" ></textarea>
-                            				<h6>Tests : </h6>
-                            				<textarea name="tests" rows="4" cols="20"></textarea>
+                            				<h5><p th:text="'Patient Name: '+${appointment.patientName}"></p>
+                            				<p th:text="'Doctor: '+${doctor.Name}"></p></h5>
+                            				<div class="textarea-container">
+                    							<div class="left-textarea">
+                        							<h6>Diseases: </h6>
+                        							<textarea name="disease" th:text="${appointment.disease}" rows="2" cols="20"></textarea>
+                    							</div>
+                    							<div class="right-textarea">
+                        							<h6>Prescription: </h6>
+                        							<textarea name="prescription" th:text="${appointment.prescription}" rows="4" cols="20"></textarea>
+                    							</div>
+                							</div>
+                							<div class="textarea-container">
+                    							<div class="left-textarea">
+                        							<h6>Note to nurse: </h6>
+                        							<textarea name="note-to-nurse" th:text="${appointment.disease}" rows="2" cols="20"></textarea>
+                    							</div>
+                    							<div class="right-textarea">
+                        							<h6>Tests: </h6>
+                        							<textarea name="tests" th:text="${appointment.prescription}" rows="4" cols="20"></textarea>
+                    							</div>
+                							</div>
                             				<p>*Please select department if you want to admit patient in any department</p>
                             				<select id="selectDepartment"  name="department">
                           	  				<option >Select Department</option>
                          					<option th:each="department : ${departments}" th:value="${department.name}" th:text="${department.name}">Department</option>
                     						</select>
-                            				<button class="btn btn-primary">Treated</button>
+                    						<div class="buttons">
+                    							<div class="button1">
+                    								<button class="view-prescription-button" style="background-color:#336699;">View Reports</button>
+    							 					<div class="prescription-modal" >
+        												<div class="report-content">
+        								 					<div  th:each="report : ${appointment.reports}">
+        								 						<h6 th:text="${report}"></h6>
+                    											<img th:src="@{'Photos/'+${report}}"  alt="Doctor Image">
+                    										</div>	
+    													</div>
+    													<span class="close-modal">&times;</span>
+                            						</div>
+                            					</div>
+                            					<div class="button2">
+                            						<button class="view-prescription-button" style="background-color:lightsalmon">View Tests</button>
+    							 					<div class="prescription-modal" >
+        												<div class="test-content">
+        								 					<ul class="test-list">
+                    											<li th:text="${appointment.prescription}"></li>
+                    										</ul>	
+                    										<button class="close-modal close">Close</button>
+    													</div>
+                            						</div>
+                    							</div>
+                    						</div>	
+                            				<button class="treated">Treated</button>
+                            				
+                            				
                             				</form>
+                            				
                     					<span class="close-modal">&times;</span>
     								</div>
                             	</div>
@@ -122,12 +174,14 @@
                     					<span class="close-modal">&times;</span>
     								</div>
                             	</div>
-				</td> 
+							</td> 
                         </tr>
                     </tbody>
                 </table>
+                </div>
       </div>
       <div class="tab-content">
+      <div class="table-responsive">
            <table class="table">
         <thead>
             <tr>
@@ -168,7 +222,6 @@
                 <td>
                     <button class="btn btn-primary">Treated</button>
                 </td>
-                
                 </form>
                 <td>
                 	 <form th:action="@{/dischargePatient/{doctorId}/{appointmentId}(doctorId=${doctor.id}, appointmentId=${appointment.id})}" method="post">
@@ -178,8 +231,10 @@
             </tr>
         </tbody>
     </table>
+    </div>
       </div>
       <div class="tab-content">
+      <div class="table-responsive">
           <table class="table">
         <thead>
             <tr>
@@ -194,20 +249,33 @@
             <!-- Use Thymeleaf to dynamically populate data -->
             <tr th:each="appointment : ${treatedAppointments}">
                 <td th:text="${appointment.id}"></td>
-                <td th:text="${appointment.patientId}"></td>
-                <td th:text="${appointment.patientName}"></td>
-                <td><input type="text" th:value="${appointment.disease}"  readonly/> </td>
-                    <td><ul class="prescription-list">
-                    	<li th:text="${appointment.prescription}"></li>
-                    </ul></td>
-            </tr>
-        </tbody>
-    </table>
-      </div>
-    </div>
-  </div>
-</div>
 
+                <td th:text="${appointment.patientId}"></td>
+
+                <td th:text="${appointment.patientName}"></td>
+
+                <td><input type="text" th:value="${appointment.disease}"  readonly/> </td>
+
+                    <td><ul class="prescription-list">
+
+                    	<li th:text="${appointment.prescription}"></li>
+
+                    </ul></td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+    </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <footer class="footer">
     <div class="container">
@@ -216,27 +284,23 @@
                 <h4>Contact Us</h4>
                 <ul>
                     <li><p>Email:hhh@gmail.com</p></li>
-                    <li><p>+91-9547856321</p></li>
+                    <li><p>+91-9999999999</p></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/loginPatient">Patient</a></li>
-                    <li><a href="/bookAppointment">Book Appointments</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Book Appointments</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Departments</h4>
                 <ul>
-                    <li><p>Gerenal</p></li>
-                    <li><p>ICU</p></li>
-                    <li><p>Emergency</p></li>
-                    <li><p>Cardiology</p></li>
-                    <li><p>Neurology</p></li>
-                    <li><p>Gynecology</p></li>
+                    <li><a href="#">Neurology</a></li>
+                    <li><a href="#">Dermotology</a></li>
                 </ul>
             </div>
             <div class="footer-col">
