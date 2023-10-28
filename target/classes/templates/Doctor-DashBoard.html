@@ -105,6 +105,29 @@
                           	  				<option >Select Department</option>
                          					<option th:each="department : ${departments}" th:value="${department.name}" th:text="${department.name}">Department</option>
                     						</select>
+                    						<div>
+                    						 <button class="view-prescription-button"> Previsous Tests</button>
+    							 				<div class="prescription-modal" >
+        										<div class="previous-Test">
+        											<ul class="prescription-list">
+                    									<li th:text="${appointment.testsList}"></li>
+                    								</ul>
+				                            		<span class="close-modal">&times;</span>
+    											</div>
+                            					</div>
+                            					<div>
+                            					</div>
+                            				<button class="view-prescription-button"> view</button>
+    							 	<div class="prescription-modal" >
+        								<div class="prescription-content">
+        								 <div  th:each="report : ${appointment.reports}">
+        								 	<h6 th:text="${report}"></h6>
+                    						<img th:src="@{'Photos/'+${report}}"  alt="Doctor Image">
+                    					</div>	
+                    					<span class="close-modal">&times;</span>
+    								</div>
+                            	</div>
+                            	</div>
                             				<button class="btn btn-primary">Treated</button>
                             				</form>
                     					<span class="close-modal">&times;</span>
@@ -185,6 +208,7 @@
             <tr>
                 <th>Appointment ID</th>
                 <th>Patient ID</th>
+                <th>Date</th>
                 <th>Name</th>
                 <th>Disease</th>
                 <th>Prescription</th>
@@ -195,6 +219,7 @@
             <tr th:each="appointment : ${treatedAppointments}">
                 <td th:text="${appointment.id}"></td>
                 <td th:text="${appointment.patientId}"></td>
+                <td th:text="${appointment.date}"></td>
                 <td th:text="${appointment.patientName}"></td>
                 <td><input type="text" th:value="${appointment.disease}"  readonly/> </td>
                     <td><ul class="prescription-list">
@@ -203,6 +228,7 @@
             </tr>
         </tbody>
     </table>
+    
       </div>
     </div>
   </div>
@@ -255,6 +281,22 @@
 <!-- Rest of your HTML content goes here -->
 
 <!-- Bootstrap and jQuery scripts (make sure to include jQuery first) -->
+
+<script>
+    function applyDateFilter() {
+        var inputDate = document.getElementById('dateFilter').value;
+        var table = document.querySelector('.tab-content table tbody');
+        var rows = table.getElementsByTagName('tr');
+        for (var i = 0; i < rows.length; i++) {
+            var date = rows[i].querySelector('td.date').innerText;
+            if (date.trim() !== inputDate) {
+                rows[i].style.display = 'none';
+            } else {
+                rows[i].style.display = 'table-row';
+            }
+        }
+    }
+</script>
 <script src="Js/doctorDashBoard.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
