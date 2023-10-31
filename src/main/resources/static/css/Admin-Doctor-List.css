@@ -100,17 +100,31 @@ body{
             margin-left: 10%;
 		}
 
+  
+  
+  
+@media (max-width: 768px) {
+    .search-container {
+        margin-left: 10px;
+    }
+    
+    .search-input {
+        width: 60%;
+    }
+}
 
-        @media (max-width: 768px) {
-            .profile-card {
-                flex-direction: column;
-            }
+/* Responsive styles for phone screens */
+@media (max-width: 480px) {
+    .search-container {
+        margin-left: 10px;
+    }
+    
+    .search-input {
+        width: 60%;
+    }
 
-            .profile-image{
-                 padding-top: 1%; 
-            }
-            .profile-details {
-                width: 100%;
-                margin: 0;
-            }
-        }
+    .profile-card {
+        width: 100%;
+        margin-left: 0;
+    }
+}

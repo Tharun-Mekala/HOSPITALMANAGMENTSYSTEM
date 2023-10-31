@@ -96,7 +96,7 @@
         	<td th:text="${test.doctorName}"></td>
         	<td th:text="${test.status}"></td>
         	<td> 
-        		<form th:action="@{/uploadReportbyLabTechnician/{testId}/{patId}(testId=${test.id},patId=${test.patId})}" method="post" enctype="multipart/form-data">
+        		<form th:action="@{/uploadReportbyLabTechnician/{testId}/{patId}/{aptId}(testId=${test.id},patId=${test.patId},aptId=${test.appId})}" method="post" enctype="multipart/form-data">
         		<input type="file" name="report" accept=".jpg, .jpeg, .pdf" multiple>
         		<button>Upload</button>
         		</form>

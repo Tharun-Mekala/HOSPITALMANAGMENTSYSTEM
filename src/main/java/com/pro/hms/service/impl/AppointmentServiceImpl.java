@@ -47,12 +47,12 @@ public class AppointmentServiceImpl implements AppointmentService{
 	}
 
 	@Override
-	public List<Appointment> getByDoctorIdAndDateAndStatus(Long doctorId, Date date,Boolean status) {
+	public List<Appointment> getByDoctorIdAndDateAndStatus(Long doctorId, Date date,String status) {
 		return appointmentRepository.findByDoctorIdAndDateAndStatus(doctorId, date, status);
 	}
 
 	@Override
-	public List<Appointment> getByDoctorIdAndStatus(Long doctorId, Boolean status) {
+	public List<Appointment> getByDoctorIdAndStatus(Long doctorId, String status) {
 		return appointmentRepository.findByDoctorIdAndStatus(doctorId, status);
 	}
 
@@ -72,12 +72,12 @@ public class AppointmentServiceImpl implements AppointmentService{
 	}
 
 	@Override
-	public List<Appointment> getByPatientIdAndStatus(Long PatientId, Boolean status) {
+	public List<Appointment> getByPatientIdAndStatus(Long PatientId, String status) {
 		return appointmentRepository.findByPatientIdAndStatus(PatientId, status);
 	}
 
 	@Override
-	public List<Appointment> getByFloorAndStatus(Integer floor, Boolean status) {
+	public List<Appointment> getByFloorAndStatus(Integer floor, String status) {
 		return appointmentRepository.findByFloorAndStatus(floor, status);
 	}
 

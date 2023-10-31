@@ -70,7 +70,6 @@ public class Department {
 		if(bed==null)
 		{
 			bed=new Long[30];
-			System.out.println("Hello");
 			Arrays.fill(bed, 0L);
 		}
 		for(int i=1;i<=30;i++)
@@ -86,7 +85,6 @@ public class Department {
 	public void removeBed(int idx,Long aId)
 	{
 		bed[idx]=(long)0;
-		System.out.println(bed[idx]);
 	}
 	public Integer getDoctors() {
 		return doctors;

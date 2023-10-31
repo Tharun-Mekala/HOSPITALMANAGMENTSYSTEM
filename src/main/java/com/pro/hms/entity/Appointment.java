@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import java.sql.Time;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -23,7 +24,7 @@ public class Appointment {
 	private String doctorName;
 	private Long patientId;
 	private String patientName;
-	private Boolean status;
+	private String status;
 	private StringBuffer disease;
 	private StringBuffer prescription;
 	private String testsList;
@@ -33,6 +34,7 @@ public class Appointment {
 	private Integer floor;
 	private List<String> reports;
 	private List<Long> tests;
+	private String noteToNurse;
 
 	public Appointment() {
 		super();
@@ -40,7 +42,7 @@ public class Appointment {
 	
 
 	public Appointment(Long id, Date date, Long doctorId, String doctorName, Long patientId, String patientName,
-			Boolean status, StringBuffer disease, StringBuffer prescription, LocalTime time, Long depId, Integer bedNo,
+			String status, StringBuffer disease, StringBuffer prescription, LocalTime time, Long depId, Integer bedNo,
 			Integer floor, List<String> reports) {
 		super();
 		this.id = id;
@@ -133,11 +135,11 @@ public class Appointment {
 		this.patientName = patientName;
 	}
 
-	public Boolean getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -186,6 +188,19 @@ public class Appointment {
 	public void setTestsList(String testsList) {
 		this.testsList = testsList;
 	}
-	
+
+	public String getNoteToNurse() {
+		return noteToNurse;
+	}
+
+	public void setNoteToNurse(String noteToNurse) {
+		this.noteToNurse = noteToNurse;
+	}
+	 public void addReport(String report)
+	 {
+		 if(this.reports==null)
+			 this.reports = new ArrayList<>();
+		 this.reports.add(report);
+	 }
 			
 }

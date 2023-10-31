@@ -345,7 +345,6 @@ public class AdminController {
 		model.addAttribute("labDepartments",departments);
 		return "LabTechnician-Register";
 	}
-	
 	@PostMapping("/addLabTechnician")
 	public String saveLabtechnician(@ModelAttribute LabTechnician  labTechnician,@RequestParam MultipartFile profilePhoto,Model model)
 	{

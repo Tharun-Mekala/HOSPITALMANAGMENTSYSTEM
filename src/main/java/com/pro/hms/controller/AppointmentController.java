@@ -90,7 +90,7 @@ public class AppointmentController {
 		appointment.setPatientId(p.getId());
 		appointment.setPatientName(p.getName());
 		appointment.setReports(p.getReports());
-		appointment.setStatus(false);
+		appointment.setStatus("booked");
 		appointmentService.saveAppointment(appointment);
 		model.addAttribute("success", "Appointments Sucessfully booked.");
 		return "BookAppointment";

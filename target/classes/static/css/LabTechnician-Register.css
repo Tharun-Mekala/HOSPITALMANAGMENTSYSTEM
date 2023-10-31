@@ -1,4 +1,3 @@
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 body{
     background-image: url(https://media.istockphoto.com/id/1050311874/photo/two-medical-scientists-neurologists-talking-and-working-on-a-personal-computer-in-modern.jpg?s=612x612&w=0&k=20&c=4AQZ4JNzLXt7vcCzR1Nm7FzUh-nUGz_bI-zt6Q61VjQ=);
     background-repeat: no-repeat;
@@ -123,22 +122,50 @@ form .button input{
 form .button input :hover{
     background: linear-gradient(-123deg, #71b8e7,#9b59b6);
 }
-@media (max-width: 584px){
-    .register-box{
-        max-width: 100%;
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .register-box {
+        width: 90%;
+        margin: 5% auto;
     }
-    form .user_details .input_pox{
-        margin-bottom: 15px;
-        width:100%;
+
+    .register-box .title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 20px;
     }
-    form .gender_details .category{
+
+    .register-box form .user_details .input_pox input,
+    .register-box form .user_details .input_pox select {
+        width: calc(100% - 30px);
+    }
+
+    .register-box form .user_details .input_pox {
         width: 100%;
+        margin-bottom: 15px;
     }
-    .register-box form .user_details{
-        max-height: 300px;
-        overflow: scroll;
+
+    .register-box form .button input {
+        width: 80%;
+        margin: 0 auto;
     }
-    .user_details::-webkit-scrollber{
-     width: 0;
+}
+
+
+@media (max-width: 480px) 
+{
+	.register-box
+	{
+		margin:5% auto;
+		width:90%;
+	}
+    .register-box .title 
+    {
+        font-size: 18px;
     }
 }

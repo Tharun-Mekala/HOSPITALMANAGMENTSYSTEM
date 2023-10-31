@@ -68,12 +68,18 @@ public class NurseController {
 		return "redirect:/loginNurse";
 		
 	}
+	
+	@GetMapping("/logoutNurse")
+	public String logoutNurse(Model model)
+	{
+		return "redirect:/loginNurse";
+	}
 	@GetMapping("/nurseDashBoard")
 	public String nurseDashBoard(Model model)
 	{
 		if(nurse==null)
 			return "redirect:/loginNurse";
-		model.addAttribute("appointments",appointmentService.getByFloorAndStatus(nurse.getFloor(),true));
+		model.addAttribute("appointments",appointmentService.getByFloorAndStatus(nurse.getFloor(),"admited"));
 		return "Nurse-DashBoard";
 	}
 }

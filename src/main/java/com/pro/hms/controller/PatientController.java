@@ -1,8 +1,7 @@
 package com.pro.hms.controller;
 
-import java.io.BufferedInputStream;
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,26 +21,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.pro.hms.entity.Appointment;
 import com.pro.hms.entity.Patient;
 import com.pro.hms.service.AppointmentService;
 import com.pro.hms.service.EmailService;
 import com.pro.hms.service.PatientService;
-
-import jakarta.servlet.http.HttpSession;
+import com.pro.hms.service.TestService;
 
 
 @Controller
 public class PatientController {
 	private PatientService patientService;
 	private AppointmentService appointmentService;
+	private TestService testService;
 	@Autowired
 	private EmailService emailService;
 	private String email="";
-	public PatientController(PatientService patientService,AppointmentService appointmentService,EmailService emailService) {
+	public PatientController(PatientService patientService,AppointmentService appointmentService,EmailService emailService,TestService testService) {
 		super();
 		this.patientService = patientService;
 		this.appointmentService=appointmentService;
 		this.emailService=emailService;
+		this.testService=testService;
 	}
 	@GetMapping("/loginPatient")
 	public String loginPatient(Model model)
@@ -80,9 +81,9 @@ public class PatientController {
 		Patient patient=patientService.getPatientByEmail(this.email);
 		model.addAttribute("patient", patient);
 		model.addAttribute("todayAppointments",appointmentService.getByPatientIdAndDate(patient.getId(), date));
-		model.addAttribute("ongoingAppointments",appointmentService.getByPatientIdAndStatus(patient.getId(), true));
+		model.addAttribute("ongoingAppointments",appointmentService.getByPatientIdAndStatus(patient.getId(), "admited"));
 		model.addAttribute("reports",patient.getReports());
-		model.addAttribute("treatedAppointments",appointmentService.getByPatientIdAndStatus(patient.getId(), false));
+		model.addAttribute("treatedAppointments",appointmentService.getByPatientIdAndStatus(patient.getId(), "discharged"));
 		return "Patient-DashBoard";
 	}
 	@PostMapping("/addPatient")
@@ -120,6 +121,11 @@ public class PatientController {
 	@GetMapping("/deleteAppointment/{id}")
 	public String deleteAppointment(@PathVariable Long id,Model model)
 	{
+		Appointment ea=appointmentService.getAppointmentById(id);
+		for(Long testId:ea.getTests())
+		{
+			testService.deleteTestById(testId);
+		}
 		appointmentService.deleteAppointmentById(id);
 		return "redirect:/patientDashBoard";
 	}

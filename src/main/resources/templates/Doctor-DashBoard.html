@@ -72,9 +72,6 @@
                             <th>Appointment ID</th>
                             <th>Patient ID</th>
                             <th>Name</th>
-                            <th>Disease</th>
-                            <th>Prescription</th>
-                            <th>Select Department</th>
                             <th>Action</th>
                             <th>Reports</th>
                         </tr>
@@ -85,18 +82,6 @@
                             <td th:text="${appointment.id}"></td>
                             <td th:text="${appointment.patientId}"></td>
                             <td th:text="${appointment.patientName}"></td>
-                           <td>
-                        <textarea name="disease" th:text="${appointment.disease}" rows="2" cols="20"></textarea>
-                        </td>
-                          <td>
-                            <textarea name="prescription" th:text="${appointment.prescription}" rows="4" cols="20" ></textarea>
-                          </td>
-                          <td>
-                          	<select id="selectDepartment"  name="department">
-                          	  <option >Select Department</option>
-                         <option th:each="department : ${departments}" th:value="${department.name}" th:text="${department.name}">Department</option>
-                    </select>
-                          </td>
                             <td>
                                  <button class="view-prescription-button"> Write Prescripton</button>
     							 	<div class="prescription-modal" >
@@ -117,11 +102,11 @@
                 							<div class="textarea-container">
                     							<div class="left-textarea">
                         							<h6>Note to nurse: </h6>
-                        							<textarea name="note-to-nurse" th:text="${appointment.disease}" rows="2" cols="20"></textarea>
+                        							<textarea name="noteToNurse" th:text="${appointment.noteToNurse}" rows="2" cols="20"></textarea>
                     							</div>
                     							<div class="right-textarea">
                         							<h6>Tests: </h6>
-                        							<textarea name="tests" th:text="${appointment.prescription}" rows="4" cols="20"></textarea>
+                        							<textarea name="tests"  rows="4" cols="20"></textarea>
                     							</div>
                 							</div>
                             				<p>*Please select department if you want to admit patient in any department</p>
@@ -147,7 +132,7 @@
     							 					<div class="prescription-modal" >
         												<div class="test-content">
         								 					<ul class="test-list">
-                    											<li th:text="${appointment.prescription}"></li>
+                    											<li th:text="${appointment.testsList}"></li>
                     										</ul>	
                     										<button class="close-modal close">Close</button>
     													</div>
@@ -197,13 +182,10 @@
         <tbody>
             <!-- Use Thymeleaf to dynamically populate data -->
             <tr th:each="appointment : ${currentAppointments}">
-             <form th:action="@{/onTreatingPatient/{doctorId}/{appointmentId}(doctorId=${doctor.id}, appointmentId=${appointment.id})}" method="post">
                 <td th:text="${appointment.id}"></td>
                 <td th:text="${appointment.patientId}"></td>
                 <td th:text="${appointment.patientName}"></td>
-               <td>
-               	<textarea name="disease"  rows="2" cols="20"></textarea>
-               </td>
+               <td th:text="${appointment.disease}"></td>
 				<td>
 					<textarea name="prescription" th:text="${appointment.prescription}" rows="4" cols="20" ></textarea>
 				</td>
@@ -219,10 +201,72 @@
     								</div>
                             	</div>
 				</td>         
-                <td>
-                    <button class="btn btn-primary">Treated</button>
-                </td>
-                </form>
+                 <td>
+                                 <button class="view-prescription-button"> Update Prescripton</button>
+    							 	<div class="prescription-modal" >
+        								<div class="prescription-content">
+             <form th:action="@{/onTreatingPatient/{doctorId}/{appointmentId}(doctorId=${doctor.id}, appointmentId=${appointment.id})}" method="post">
+                            				<h5><p th:text="'Patient Name: '+${appointment.patientName}"></p>
+                            				<p th:text="'Doctor: '+${doctor.Name}"></p></h5>
+                            				<div class="textarea-container">
+                    							<div class="left-textarea">
+                        							<h6>Diseases: </h6>
+                        							<textarea name="disease" th:text="${appointment.disease}" rows="2" cols="20"></textarea>
+                    							</div>
+                    							<div class="right-textarea">
+                        							<h6>Prescription: </h6>
+                        							<textarea name="prescription" th:text="${appointment.prescription}" rows="4" cols="20"></textarea>
+                    							</div>
+                							</div>
+                							<div class="textarea-container">
+                    							<div class="left-textarea">
+                        							<h6>Note to nurse: </h6>
+                        							<textarea name="noteToNurse" th:text="${appointment.noteToNurse}" rows="2" cols="20"></textarea>
+                    							</div>
+                    							<div class="right-textarea">
+                        							<h6>Tests: </h6>
+                        							<textarea name="tests"  rows="4" cols="20"></textarea>
+                    							</div>
+                							</div>
+                            				<p>*Please select department if you want to admit patient in any department</p>
+                            				<select id="selectDepartment"  name="department">
+                          	  				<option >Select Department</option>
+                         					<option th:each="department : ${departments}" th:value="${department.name}" th:text="${department.name}">Department</option>
+                    						</select>
+                    						<div class="buttons">
+                    							<div class="button1">
+                    								<button class="view-prescription-button" style="background-color:#336699;">View Reports</button>
+    							 					<div class="prescription-modal" >
+        												<div class="report-content">
+        								 					<div  th:each="report : ${appointment.reports}">
+        								 						<h6 th:text="${report}"></h6>
+                    											<img th:src="@{'Photos/'+${report}}"  alt="Doctor Image">
+                    										</div>	
+    													</div>
+    													<span class="close-modal">&times;</span>
+                            						</div>
+                            					</div>
+                            					<div class="button2">
+                            						<button class="view-prescription-button" style="background-color:lightsalmon">View Tests</button>
+    							 					<div class="prescription-modal" >
+        												<div class="test-content">
+        								 					<ul class="test-list">
+                    											<li th:text="${appointment.testsList}"></li>
+                    										</ul>	
+                    										<button class="close-modal close">Close</button>
+    													</div>
+                            						</div>
+                    							</div>
+                    						</div>	
+                            				<button class="treated">Treated</button>
+                            				
+                            				
+                            				</form>
+                            				
+                    					<span class="close-modal">&times;</span>
+    								</div>
+                            	</div>
+                            </td>
                 <td>
                 	 <form th:action="@{/dischargePatient/{doctorId}/{appointmentId}(doctorId=${doctor.id}, appointmentId=${appointment.id})}" method="post">
                 	 	<button class="btn btn-primary">Discharge</button>

@@ -1,8 +1,9 @@
-body {
+body 
+{
             background-image: url(https://e0.pxfuel.com/wallpapers/124/673/desktop-wallpaper-health-care-industries.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-        }
+}
 .register-box{
     margin-top: 5%;
     margin-left: 30%;
@@ -122,22 +123,23 @@ form .button input{
 form .button input :hover{
     background: linear-gradient(-123deg, #71b8e7,#9b59b6);
 }
-@media (max-width: 584px){
-    .register-box{
-        max-width: 100%;
+
+
+
+@media (max-width: 768px) {
+    .register-box {
+        width: 90%;
+        margin-left: 5%;
     }
-    form .user_details .input_pox{
-        margin-bottom: 15px;
-        width:100%;
+
+    form .user_details .input_pox {
+        width: calc(50% - 20px);
     }
-    form .gender_details .category{
-        width: 100%;
-    }
-    .register-box form .user_details{
-        max-height: 300px;
-        overflow: scroll;
-    }
-    .user_details::-webkit-scrollber{
-     width: 0;
+}
+
+/* Media Queries for Phone Screens (up to 480px) */
+@media (max-width: 480px) {
+    form .user_details .input_pox {
+        width: calc(100% - 20px);
     }
 }

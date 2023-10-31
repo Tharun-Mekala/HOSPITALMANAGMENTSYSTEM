@@ -131,21 +131,22 @@ public class DoctorController {
 		Date date=Date.valueOf(currentDate);
 		model.addAttribute("doctor", this.doctor);
 		model.addAttribute("departments",departmentService.getAllDepartment());
-		model.addAttribute("todayAppointments",appointmentService.getByDoctorIdAndDateAndStatus(this.doctor.getId(), date, false));
-		model.addAttribute("currentAppointments",appointmentService.getByDoctorIdAndStatus(this.doctor.getId(), true));
-		model.addAttribute("treatedAppointments",appointmentService.getByDoctorIdAndStatus(this.doctor.getId(), false));
+		model.addAttribute("todayAppointments",appointmentService.getAppointmentByDate(date));
+		model.addAttribute("currentAppointments",appointmentService.getByDoctorIdAndStatus(this.doctor.getId(), "admited"));
+		model.addAttribute("treatedAppointments",appointmentService.getByDoctorIdAndStatus(this.doctor.getId(), "discharged"));
 		return "Doctor-DashBoard";
 	}
 	
 	
 	
 	@PostMapping("/treatPatient/{appointmentId}")
-	public String treatPatient(@PathVariable Long appointmentId,@RequestParam String disease,@RequestParam String prescription,@RequestParam String tests,@RequestParam String department,Model model)
+	public String treatPatient(@PathVariable Long appointmentId,@RequestParam String disease,@RequestParam String prescription,@RequestParam String noteToNurse,@RequestParam String tests,@RequestParam String department,Model model)
 	{
 		String error=null;
 		Appointment ea=appointmentService.getAppointmentById(appointmentId);
 		ea.setDisease(new StringBuffer(disease));
 		ea.setPrescription(new StringBuffer(prescription));
+		ea.setNoteToNurse(noteToNurse);
 		List<Long> listofTests = new ArrayList<>();
 		LocalDate currentDate = LocalDate.now();
 		Date date=Date.valueOf(currentDate);
@@ -182,13 +183,13 @@ public class DoctorController {
 		Department dep=departmentService.getDepartmentByName(department);
 		if(dep!=null)
 		{
-			ea.setDepId(dep.getId());
-			ea.setStatus(true);
 			int OB=dep.getOccpuiedBeds();
 			if(OB<=30)
 			{
 				OB++;
 				dep.setOccpuiedBeds(OB);
+				ea.setDepId(dep.getId());
+				ea.setStatus("admited");
 				ea.setBedNo(dep.setBed(ea.getId()));
 				ea.setFloor(dep.getFloor());
 				departmentService.updateDepartment(dep);
@@ -199,7 +200,7 @@ public class DoctorController {
 			}
 		}
 		else
-			ea.setStatus(false);
+			ea.setStatus("discharged");
 		appointmentService.updateAppointment(ea);
 		return "redirect:/doctorDashBoard";
 	}
@@ -219,7 +220,7 @@ public class DoctorController {
 	{
 		Doctor doctor=doctorService.getDoctorById(doctorId);
 		Appointment ea=appointmentService.getAppointmentById(appointmentId);
-		ea.setStatus(false);
+		ea.setStatus("discharged");
 		Department dep=departmentService.getDepartmentById(ea.getDepId());
 		dep.removeBed(ea.getBedNo(), appointmentId);
 		int ob=dep.getOccpuiedBeds();

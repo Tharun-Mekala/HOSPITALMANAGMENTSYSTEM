@@ -15,10 +15,10 @@ public interface AppointmentService {
 	void deleteAppointmentById(Long id);
 	
 	List<Appointment> getAppointmentByDate(Date date);
-	List<Appointment> getByDoctorIdAndDateAndStatus(Long doctorId, Date date,Boolean status);
-	List<Appointment> getByDoctorIdAndStatus(Long doctorId,Boolean status);
+	List<Appointment> getByDoctorIdAndDateAndStatus(Long doctorId, Date date,String status);
+	List<Appointment> getByDoctorIdAndStatus(Long doctorId,String status);
 	List<Appointment> getByPatientIdAndDate(Long patientId, Date date);
-	List<Appointment> getByPatientIdAndStatus(Long PatientId,Boolean status);
+	List<Appointment> getByPatientIdAndStatus(Long PatientId,String status);
 	List<LocalTime> getTimeByDate(Date date);
-	  List<Appointment> getByFloorAndStatus(Integer floor,Boolean status);
+	  List<Appointment> getByFloorAndStatus(Integer floor,String status);
 }
