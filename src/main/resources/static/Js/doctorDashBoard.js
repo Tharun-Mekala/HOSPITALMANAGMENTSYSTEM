@@ -36,12 +36,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
- function disableBackButton() {
+function disableBackButton() {
     window.history.forward();
- }
- window.onload = disableBackButton;
- window.onpageshow = function(evt) {
+}
+window.onload = disableBackButton;
+window.onpageshow = function (evt) {
     if (evt.persisted) {
-      disableBackButton();
+        disableBackButton();
     }
- };
+};
+
+// Function to switch tabs
+const tabToggles = document.querySelectorAll(".tab-toggle");
+const tabContents = document.querySelectorAll(".tab-content");
+
+tabToggles.forEach((toggle, index) => {
+    toggle.addEventListener("click", function () {
+        // Hide all tab contents
+        tabContents.forEach((content) => {
+            content.style.display = "none";
+        });
+
+        // Show the clicked tab content
+        tabContents[index].style.display = "block";
+    });
+});

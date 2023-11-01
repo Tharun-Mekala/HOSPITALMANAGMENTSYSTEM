@@ -3,17 +3,17 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-h1 {
+.box h1 {
   font-weight: bold;
   margin: 0;
   font-size: 24px;
 }
 
-h2 {
+.box h2 {
   text-align: center;
 }
 
-p {
+.box p {
   font-size: 16px;
   font-weight: 100;
   line-height: 20px;
@@ -21,11 +21,11 @@ p {
   margin: 20px 0 30px;
 }
 
-span {
+.box span {
   font-size: 12px;
 }
 
-a {
+.box a {
   color: #333;
   font-size: 14px;
   text-decoration: none;

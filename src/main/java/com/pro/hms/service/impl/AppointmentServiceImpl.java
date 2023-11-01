@@ -81,6 +81,11 @@ public class AppointmentServiceImpl implements AppointmentService{
 		return appointmentRepository.findByFloorAndStatus(floor, status);
 	}
 
+	@Override
+	public List<Appointment> getByDateAfter(Date date) {
+		return appointmentRepository.findByDateAfter(date);
+	}
+
 	
 	
 }

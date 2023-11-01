@@ -21,4 +21,5 @@ public interface AppointmentService {
 	List<Appointment> getByPatientIdAndStatus(Long PatientId,String status);
 	List<LocalTime> getTimeByDate(Date date);
 	  List<Appointment> getByFloorAndStatus(Integer floor,String status);
+	  List<Appointment> getByDateAfter(Date date);
 }

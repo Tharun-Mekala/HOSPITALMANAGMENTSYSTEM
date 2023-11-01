@@ -52,6 +52,7 @@
     <input type="radio" class="tab-toggle" name="tab-toggle" id="tab1" checked>
     <input type="radio" class="tab-toggle" name="tab-toggle" id="tab2">
     <input type="radio" class="tab-toggle" name="tab-toggle" id="tab3">
+    <input type="radio" class="tab-toggle" name="tab-toggle" id="tab4">
     <ul class="tab-list">
       <li class="tab-item">
         <label class="tab-trigger" for="tab1">Today's Appointments</label>
@@ -61,6 +62,9 @@
       </li>
       <li class="tab-item">
         <label class="tab-trigger" for="tab3">Treated Appointment</label>
+      </li>
+  <li class="tab-item">
+        <label class="tab-trigger" for="tab4">Upcoming Appointment</label>
       </li>
     </ul>
     <div class="tab-container">
@@ -174,9 +178,9 @@
                 <th>Patient ID</th>
                 <th>Name</th>
                 <th>Disease</th>
-                <th>Prescription</th>
                 <th>Reports</th>
                 <th>Action</th>
+                <th>Discharge</th>
             </tr>
         </thead>
         <tbody>
@@ -186,11 +190,8 @@
                 <td th:text="${appointment.patientId}"></td>
                 <td th:text="${appointment.patientName}"></td>
                <td th:text="${appointment.disease}"></td>
-				<td>
-					<textarea name="prescription" th:text="${appointment.prescription}" rows="4" cols="20" ></textarea>
-				</td>
                   <td>
-                                 <button class="view-prescription-button"> view</button>
+                                 <button class="view-prescription-button reports-btn"> view</button>
     							 	<div class="prescription-modal" >
         								<div class="prescription-content">
         								 <div  th:each="report : ${appointment.reports}">
@@ -202,7 +203,7 @@
                             	</div>
 				</td>         
                  <td>
-                                 <button class="view-prescription-button"> Update Prescripton</button>
+                                 <button class="view-prescription-button update-btn"> Update Prescripton</button>
     							 	<div class="prescription-modal" >
         								<div class="prescription-content">
              <form th:action="@{/onTreatingPatient/{doctorId}/{appointmentId}(doctorId=${doctor.id}, appointmentId=${appointment.id})}" method="post">
@@ -269,7 +270,7 @@
                             </td>
                 <td>
                 	 <form th:action="@{/dischargePatient/{doctorId}/{appointmentId}(doctorId=${doctor.id}, appointmentId=${appointment.id})}" method="post">
-                	 	<button class="btn btn-primary">Discharge</button>
+                	 	<button class="discharge">Discharge</button>
                 	 </form>
                 </td>
             </tr>
@@ -314,7 +315,38 @@
     </div>
 
       </div>
+<div class="tab-content">
+      <div class="table-responsive">
+          <table class="table">
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient ID</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Use Thymeleaf to dynamically populate data -->
+            <tr th:each="appointment : ${upcomingAppointments}">
+                <td th:text="${appointment.id}"></td>
 
+                <td th:text="${appointment.patientId}"></td>
+
+                <td th:text="${appointment.patientName}"></td>
+
+                <td th:text="${appointment.date}"></td>
+                <td th:text="${appointment.Time}"></td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+    </div>
+
+      </div>
     </div>
 
   </div>

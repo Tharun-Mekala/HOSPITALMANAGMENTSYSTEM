@@ -19,4 +19,5 @@ public interface AppointmentRepository extends JpaRepository<Appointment,Long> {
 	List<Appointment> findByDate(Date date);
     List<LocalTime> findTimeByDate(@Param("targetDate") Date targetDate);
     List<Appointment> findByFloorAndStatus(Integer floor,String status);
+    List<Appointment> findByDateAfter(Date date);
 }

@@ -134,6 +134,19 @@ public class DoctorController {
 		model.addAttribute("todayAppointments",appointmentService.getAppointmentByDate(date));
 		model.addAttribute("currentAppointments",appointmentService.getByDoctorIdAndStatus(this.doctor.getId(), "admited"));
 		model.addAttribute("treatedAppointments",appointmentService.getByDoctorIdAndStatus(this.doctor.getId(), "discharged"));
+		List<Appointment> upcomingAppointments=appointmentService.getByDateAfter(date);
+		  Collections.sort(upcomingAppointments, new Comparator<Appointment>() {
+	            @Override
+	            public int compare(Appointment a1, Appointment a2) {
+	                int dateComparison = a1.getDate().compareTo(a2.getDate());
+	                if (dateComparison == 0) {
+	                    return a1.getTime().compareTo(a2.getTime());
+	                } else {
+	                    return dateComparison;
+	                }
+	            }
+	        });
+		model.addAttribute("upcomingAppointments",upcomingAppointments);
 		return "Doctor-DashBoard";
 	}
 	

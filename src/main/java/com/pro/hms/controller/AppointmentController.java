@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pro.hms.entity.Appointment;
+import com.pro.hms.entity.Doctor;
 import com.pro.hms.entity.Patient;
 import com.pro.hms.resources.TokenTime;
 import com.pro.hms.service.AppointmentService;
@@ -45,8 +46,15 @@ public class AppointmentController {
 	public String bookAppointment(Model model)
 	{
 		Appointment appointment= new Appointment();
+		List<Doctor> doctors=doctorService.getDoctorsByDepartmentNotInICUAndEmergency();
+		Collections.sort(doctors,new Comparator<Doctor>() {
+            @Override
+            public int compare(Doctor d1, Doctor d2) {
+                return d1.getDepartment().compareTo(d2.getDepartment());
+            }
+        });
 		model.addAttribute("appointment",appointment);
-		model.addAttribute("doctors",doctorService.getDoctorsByDepartmentNotInICUAndEmergency());
+		model.addAttribute("doctors",doctors);
 		model.addAttribute("appointmentConfirmed",false);
 		LocalDate minDate = LocalDate.now();
         LocalDate maxDate = minDate.plusWeeks(1);

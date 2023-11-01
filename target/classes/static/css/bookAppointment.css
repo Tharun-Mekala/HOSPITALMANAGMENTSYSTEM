@@ -1,133 +1,93 @@
-.box {
-    display: flex;
-    height: 100vh;
-    width: 70%;
-    height: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: 15%;
-    margin-right: 5%;
-    background-color: #f0f0f0;
-
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
-/* Left Section - Gradient Background */
-.left {
-    flex: 1;
-    background: url('../bgi/BAL.jpg');
-    background-size: 100% 100%; 
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    padding: 20px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-.box .left .h2{
-    font-weight: block;
-   font-size: 20px;
-    color:red;
-    margin:0 0 15px;
-}
-/* Right Section - Modern Input Design */
-.right {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    animation: fadeIn 0.5s;
-}
-
-/* Form Heading */
-.right h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Input Boxes and Labels */
-.inputBox {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.inputBox input,
-.inputBox select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.inputBox span {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-    color: #888;
-}
-
-/* Button Styling */
-button {
-    background-color: #007bff;
-    color: #fff;
+/* Search Button */
+.search-button button {
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
+    padding: 12px 24px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.search-button button:hover {
+    background-color: #45a049;
 }
 
-/* Add a fade-in animation */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Doctor List */
+.doctor-list {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
 }
 
+.doctor-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+}
 
+.doctor-card h3 {
+    color: #333333;
+    margin-top: 0;
+}
 
+.doctor-card p {
+    color: #666666;
+}
+
+/* Form */
+.form {
+    background-color: #ffffff;
+    padding: 40px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+}
+
+.form input[type="text"],
+.form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form button:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .box {
-        margin: 5% 5% 5% 5%;
-    }
-}
-
-/* Media Queries for Phone Screens (up to 480px) */
-@media (max-width: 480px) {
-    .box {
-        margin: 5% 2% 5% 15%;
+    .container {
+        width: 100%;
     }
 
-    .right h2 {
-        font-size: 20px;
-    }
-
-    .inputBox input,
-    .inputBox select {
-        padding: 8px;
-        font-size: 12px;
-    }
-
-    .inputBox span {
-        font-size: 12px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 14px;
+    .col-lg-3,
+    .col-lg-9 {
+        width: 100%;
     }
 }
