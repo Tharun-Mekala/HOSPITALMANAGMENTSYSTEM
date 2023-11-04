@@ -48,12 +48,24 @@
         </div>
     </div>
 </nav>
-<div class="box">
-    <div class="left">
-    </div>
-    <div class="right">
+
+<div class="book_container">
+        <div class="find">
+            <h2>Find Doctor</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+            
+            <div class="card" th:if="${doctorslist}" th:each="doctor : ${doctorslist}">
+            	<p th:text="'Name: '+${doctor.name}"></p>
+            	<p th:text="'Department: '+${doctor.department}"></p>
+            	<p th:text="'Experience '+${doctor.experience}"></p>
+        	</div>
+        	
+        </div>
         <div class="form">
-             <form th:action="@{/bookAppointment}" method="post" th:object="${appointment}">
+            <form th:action="@{/bookAppointmentStatus}" method="post" th:object="${appointment}">
 				  <div th:if="${error}" th:text="${error}" style="color: red;"></div>
 				  <div th:if="${success}" th:text="${success}" style="color: lightseagreen;"></div>
                 <h2>Book Appointment</h2>
@@ -74,11 +86,10 @@
                             <option th:each="timeSlot : ${timeSlots}" th:value="${timeSlot}" th:text="${timeSlot}"></option>
                         </select><span>Select Time</span>
                 </div>
-                <button>Book Appointment</button>
+                <button class="book">Book Appointment</button>
             </form>
         </div>
     </div>
-</div>
 
 <footer class="footer">
     <div class="container">

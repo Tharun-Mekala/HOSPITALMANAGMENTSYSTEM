@@ -228,7 +228,7 @@ tr:nth-child(odd)
 }
 
 .prescription-content {
-  background-color:lightsteelblue;
+   background-image: linear-gradient(to right, #8e9eab 0%, #eef2f3  51%, #8e9eab  100%);
   font-family: "Playfair Display", serif;
   color: black;
   margin: 100px 100px; /* Adjust the margin as needed */  

@@ -63,7 +63,7 @@ public class AppointmentController {
 		model.addAttribute("timeSlots",allSlots);
 		return "BookAppointment";
 	}
-	@PostMapping("/bookAppointment")
+	@PostMapping("/bookAppointmentStatus")
 	public String conformAppiontment(Model model,@ModelAttribute Appointment appointment,@RequestParam String aadhar)
 	{
 		Patient p=patientService.getPatientByAadhar(aadhar);
@@ -81,10 +81,8 @@ public class AppointmentController {
 		List<Appointment> ap=appointmentService.getAppointmentByDate(appointment.getDate());
 		for(Appointment a:ap)
 		{
-			System.out.println(a.getTime()+" "+appointment.getTime());
 			if(a.getTime().compareTo(appointment.getTime())==0)
 			{
-				System.out.println("error rasied");
 				model.addAttribute("error", "Appointments already choosen on the selected date & time. Please choose another time/Date.");
 				 return "Bookappointment";
 			}
