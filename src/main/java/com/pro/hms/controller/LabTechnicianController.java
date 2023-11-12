@@ -84,6 +84,25 @@ public class LabTechnicianController {
 				
 		}
 	}
+	@GetMapping("/logoutLabTechnician")
+	public String logoutLabTechnician(Model model)
+	{
+		labTechnician=null;
+		return "redirect:/LoginLabTechnician";
+	}
+	@GetMapping("/labTechnicianChangePassword")
+	public String doctorChangePassword(Model model)
+	{
+		return "LabTechnician-ChangePassword";
+	}
+	
+	@PostMapping("/labTechnicianChangePassword")
+	public String doctorUpdatePassword(@RequestParam String password,Model model)
+	{
+		labTechnician.setPassword(password);
+		labTechnicianService.updateLabTechnician(labTechnician);
+		return "redirect:/labTechnicianDashBoard";
+	}
 	@PostMapping("/labTechnicianSendNewPassword")
 	public String labTechnicianSendNewPassword(@RequestParam String email,Model model)
 	{

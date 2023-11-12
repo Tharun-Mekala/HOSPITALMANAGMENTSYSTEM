@@ -144,7 +144,7 @@ public class AdminController {
 	        dep.setDoctors(dep.getDoctors()+1);
 	        departmentService.updateDepartment(dep);
 	        doctorService.saveDoctor(doctor);
-	       //emailService.sendEmail(doctor.getEmail(),"Successfully Account Created","Your user id : "+doctor.getEmail()+"\nYour password : "+doctor.getPassword()+"\n");
+	        //emailService.sendEmail(doctor.getEmail(),"Successfully Account Created","Your user id : "+doctor.getEmail()+"\nYour password : "+doctor.getPassword()+"\n");
 	        return "redirect:/doctors";
 	}
 	@GetMapping("/doctors/edit/{id}")
@@ -423,6 +423,7 @@ public class AdminController {
 		try {
 			File file=new ClassPathResource("static/Photos").getFile();
     		Path path=Paths.get(file.getAbsolutePath()+File.separator+lt.getProfile_photo());
+    		if(path!=null)
     		Files.delete(path);
 		}
 		catch(Exception e)

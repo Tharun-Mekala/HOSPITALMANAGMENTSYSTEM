@@ -5,7 +5,7 @@
     height:100%;
 	background-size:cover;
 	background-image: linear-gradient(to right, #A1FFCE 0%, #FAFFD1  51%, #A1FFCE  100%);
-	
+
 }
 
 
@@ -15,6 +15,7 @@
     width: 40%; 
     margin-left:7%;
     overflow-y:auto;
+    height:500px;
 }
 
 .find h2 {
@@ -51,13 +52,11 @@
 
 .form {
     width: 30%; 
-    height: 550px; 
+    height: 500px; 
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    margin: 10px 0px;
     margin-right: 10%;
     margin-left:10%;
     box-sizing: border-box;
@@ -106,10 +105,11 @@
     display: block;
 }
 
-.book:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
+.book:hover 
+{
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	text-decoration: none;
 }
 
 .error {

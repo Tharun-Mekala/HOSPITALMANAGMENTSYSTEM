@@ -4,7 +4,6 @@ import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 
-
 import org.springframework.stereotype.Service;
 
 import com.pro.hms.entity.Doctor;
@@ -65,5 +64,11 @@ public class DoctorServiceImpl implements DoctorService{
 	@Override
 	public List<Doctor> getDoctorsByDepartmentNotInICUAndEmergency() {
 		return doctorRepository.findDoctorsByDepartmentNotInICUAndEmergency();
+	}
+
+	@Override
+	public List<Doctor> getByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrDepartmentContainingIgnoreCaseOrExperience(String name, String email,String department,
+			Integer k) {
+		return doctorRepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrDepartmentContainingIgnoreCaseOrExperience(name, email, department, k);
 	}
 }

@@ -82,4 +82,19 @@ public class NurseController {
 		model.addAttribute("appointments",appointmentService.getByFloorAndStatus(nurse.getFloor(),"admited"));
 		return "Nurse-DashBoard";
 	}
+
+	@GetMapping("/nurseChangePassword")
+	public String doctorChangePassword(Model model)
+	{
+		return "Nurse-ChangePassword";
+	}
+	
+	@PostMapping("/nurseChangePassword")
+	public String doctorUpdatePassword(@RequestParam String password,Model model)
+	{
+		nurse.setPassword(password);
+		nurseService.updateNurse(nurse);
+		return "redirect:/nurseDashBoard";
+	}
+	
 }

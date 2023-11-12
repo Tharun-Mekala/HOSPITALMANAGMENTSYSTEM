@@ -51,18 +51,18 @@
 
 <div class="book_container">
         <div class="find">
-            <h2>Find Doctor</h2>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search...">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </div>
-            
-            <div class="card" th:if="${doctorslist}" th:each="doctor : ${doctorslist}">
-            	<p th:text="'Name: '+${doctor.name}"></p>
+        	<form action="bookAppointment" method="post">
+            	<h2>Find Doctor</h2>
+            	<div class="search-container">
+                	<input type="text" name="key" id="searchInput" placeholder="Search...">
+                	<button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+			</form>
+            <div class="card" th:if="${doctorslist}" th:each="doctor:${doctorslist}">
+            		<p th:text="'Name: '+${doctor.name}"></p>
             	<p th:text="'Department: '+${doctor.department}"></p>
             	<p th:text="'Experience '+${doctor.experience}"></p>
         	</div>
-        	
         </div>
         <div class="form">
             <form th:action="@{/bookAppointmentStatus}" method="post" th:object="${appointment}">

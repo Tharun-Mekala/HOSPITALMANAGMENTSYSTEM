@@ -1,6 +1,7 @@
 package com.pro.hms.service;
 
 import java.util.List;
+
 import com.pro.hms.entity.Doctor;
 
 public interface DoctorService {
@@ -13,4 +14,6 @@ public interface DoctorService {
 	void deleteDoctorById(Long id);
 	List<Doctor> getTop4DoctorsWithMostExperience();
 	List<Doctor> getDoctorsByDepartmentNotInICUAndEmergency();
+	List<Doctor>  getByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrDepartmentContainingIgnoreCaseOrExperience(String name, String email,String department,
+			Integer k);
 }

@@ -63,6 +63,33 @@ public class AppointmentController {
 		model.addAttribute("timeSlots",allSlots);
 		return "BookAppointment";
 	}
+	@PostMapping("/bookAppointment")
+	public String DoctorSearchList(@RequestParam String key,Model model)
+	{
+		List<Doctor> doctorslist=null;
+		if(key.matches("[0-9]{1,3}"))
+			doctorslist = doctorService. getByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrDepartmentContainingIgnoreCaseOrExperience(null,null,null,Integer.parseInt(key));
+		else
+			doctorslist = doctorService. getByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrDepartmentContainingIgnoreCaseOrExperience(key,key,key,null);
+		model.addAttribute("doctorslist",doctorslist);
+		Appointment appointment= new Appointment();
+		List<Doctor> doctors=doctorService.getDoctorsByDepartmentNotInICUAndEmergency();
+		Collections.sort(doctors,new Comparator<Doctor>() {
+            @Override
+            public int compare(Doctor d1, Doctor d2) {
+                return d1.getDepartment().compareTo(d2.getDepartment());
+            }
+        });
+		model.addAttribute("appointment",appointment);
+		model.addAttribute("doctors",doctors);
+		model.addAttribute("appointmentConfirmed",false);
+		LocalDate minDate = LocalDate.now();
+        LocalDate maxDate = minDate.plusWeeks(1);
+		model.addAttribute("minDate",minDate);
+		model.addAttribute("maxDate",maxDate);
+		model.addAttribute("timeSlots",allSlots);
+		return "BookAppointment";
+	}
 	@PostMapping("/bookAppointmentStatus")
 	public String conformAppiontment(Model model,@ModelAttribute Appointment appointment,@RequestParam String aadhar)
 	{

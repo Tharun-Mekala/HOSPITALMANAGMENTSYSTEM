@@ -1,9 +1,6 @@
 package com.pro.hms.entity;
 
-
-
 import java.sql.Date;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -100,5 +97,4 @@ public class Doctor {
 	public void setExperience(Integer experience) {
 		this.experience = experience;
 	}
-	
 }
